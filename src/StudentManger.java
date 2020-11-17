@@ -38,7 +38,7 @@ public class StudentManger {
 	public static void addStudent(ArrayList<Student> array) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("请输入学生学号：");
-		String number= sc.nextLine();
+		String number = sc.nextLine();
 		System.out.println("请输入学生姓名：");
 		String name = sc.nextLine();
 		System.out.println("请输入学生地址：");
@@ -55,24 +55,51 @@ public class StudentManger {
 	}
 
 	public static void findStudent(ArrayList<Student> array) {
-		for(int i=0;i<array.size();i++) {
+		System.out.println("学号\t姓名\t年龄\t地址");
+		for (int i = 0; i < array.size(); i++) {
 			Student s = array.get(i);
-			System.out.println("学号\t姓名\t年龄\t地址");
-			System.out.println(s.getNumber() +"\t"+s.getName() +"\t"+s.getAge()+"\t"+s.getAddress());
+
+			System.out.println(s.getNumber() + "\t" + s.getName() + "\t" + s.getAge() + "\t" + s.getAddress());
 		}
-		
 
 	}
 
 	public static void deleteStudent(ArrayList<Student> array) {
-			System.out.println("请输入想要删除的学生学号");
-			Scanner sc = new Scanner(System.in);
-			int x = sc.nextInt();
-			
+		System.out.println("请输入想要删除的学生学号");
+		Scanner sc = new Scanner(System.in);
+		String number = sc.nextLine();
+		for (int i = 0; i < array.size(); i++) {
+			Student s = array.get(i);
+			if (s.getNumber().equals(number)) {
+				array.remove(i);
+				break;
+			}
+		}
+		System.out.println("删除成功");
 
 	}
 
 	public static void updateStudent(ArrayList<Student> array) {
+		System.out.println("请输入想要修改的学号");
+		Scanner sc = new Scanner(System.in);
+		String number = sc.nextLine();
+		System.out.println("输入姓名：");
+		Scanner sc1 = new Scanner(System.in);
+		String name = sc1.nextLine();
+		System.out.println("输入地址：");
+		Scanner sc11 = new Scanner(System.in);
+		String address = sc11.nextLine();
+		System.out.println("输入年龄：");
+		Scanner sc111 = new Scanner(System.in);
+		String age = sc111.nextLine();
+		for (int i = 0; i < array.size(); i++) {
+			Student s = array.get(i);
+			if (s.getNumber().equals(number)) {
+				s.setName(name);
+				s.setAddress(address);
+				s.setAge(age);
+			}
+		}
 
 	}
 }
